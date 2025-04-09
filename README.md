@@ -1,5 +1,8 @@
 # Getting Started with Create React App
 
+First, run `npm start` to load react
+After, run `npm run electron` to create electron window
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
