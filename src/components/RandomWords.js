@@ -2,25 +2,31 @@ import { useState } from 'react';
 import FrenchWordsData from 'an-array-of-french-words'
 
 export default function RandomWords() {
-    const [numberOfWords, setNumberWords] = useState(0);
+    const [numberOfWords, setNumberWords] = useState(1);
     const words = FrenchWordsData
-    var listOfWords = []
+    const size = Object.keys(words).length;
+    var nextId = 0;
+
+    var [listOfWords, setListOfWords] = useState([]);
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
     }
-    function getWords(wordCount) {
-        listOfWords = []
-        console.log(numberOfWords)
-        for(let i = 0; i <= wordCount-1; i++){
-            var wordId = getRandomInt(words.length)
-            listOfWords.push(words[wordId])
-            console.log(listOfWords)
+    function getWords() {  
+        listOfWords=[]
+        for(let i = 0; i <= numberOfWords-1; i++){
+            var wordId = getRandomInt(size)
+            console.log(words[wordId])
+            const i = [...listOfWords, { id: nextId++, name: words[wordId] }]
+
+            setListOfWords(i);
         }
+        
+        console.log("liste",listOfWords)
     }
 
     function RemoveNumWord() {
-        if(numberOfWords > 0){
+        if(numberOfWords > 1){
             setNumberWords(numberOfWords-1)
         }
 
@@ -30,7 +36,6 @@ export default function RandomWords() {
             setNumberWords(numberOfWords+1)
         }
     }
-
     return (
         <div>
             <h2> Choisi le nombre de mots </h2>
@@ -40,10 +45,10 @@ export default function RandomWords() {
             <h2> Clique sur le bouton pour avoir {numberOfWords} mots</h2>
             <ul>
                 {listOfWords.map(word => (
-                    <li>{word}</li>
+                    <li key={word.id}>{word.name}</li>
                 ))}
             </ul>
-            <button onClick={getWords(numberOfWords)}> Trouver des mots </button>
+            <button onClick={getWords}> Trouver des mots </button>
         </div>
 
     );
