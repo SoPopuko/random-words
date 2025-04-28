@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import FrenchWordsData from 'an-array-of-french-words'
+import FlowerLine from './FlowerLine';
 
 export default function RandomWords() {
     const [numberOfWords, setNumberWords] = useState(1);
@@ -17,9 +18,11 @@ export default function RandomWords() {
         for(let i = 0; i <= numberOfWords-1; i++){
             var wordId = getRandomInt(size)
             console.log(words[wordId])
-            const i = [...listOfWords, { id: nextId++, name: words[wordId] }]
+            const word = { id: nextId++, name: words[wordId] }
+            console.log(word)
+            listOfWords.push(word)
 
-            setListOfWords(i);
+            setListOfWords(listOfWords);
         }
         
         console.log("liste",listOfWords)
@@ -37,18 +40,27 @@ export default function RandomWords() {
         }
     }
     return (
-        <div>
-            <h2> Choisi le nombre de mots </h2>
-            <button onClick={RemoveNumWord}> - </button>
-            {numberOfWords}
-            <button onClick={AddNumWord}> + </button>
-            <h2> Clique sur le bouton pour avoir {numberOfWords} mots</h2>
-            <ul>
-                {listOfWords.map(word => (
-                    <li key={word.id}>{word.name}</li>
-                ))}
-            </ul>
-            <button onClick={getWords}> Trouver des mots </button>
+        <div className="random-words">
+            <FlowerLine />
+            <div>
+                <h2> Choisi le nombre de mots </h2>
+                <div className='word-counter'>
+                    <button className='tiny-btn' onClick={RemoveNumWord}> - </button>
+                    <h2> {numberOfWords} </h2>
+                    <button className='tiny-btn' onClick={AddNumWord}> + </button>
+                </div>
+                
+                <h2> Clique sur le bouton !</h2>
+                <ul className={numberOfWords>5 ? 'over-five' : ''}>
+                    {listOfWords.map(word => (
+                        <li key={word.id}>{word.name}</li>
+                    ))}
+                </ul>
+            
+                <button className='result-btn' onClick={getWords}> Avoir des mots </button>
+            </div>
+            <FlowerLine />
+
         </div>
 
     );

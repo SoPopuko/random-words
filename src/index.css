@@ -1,13 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Pixelify+Sans&display=swap');
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Pixelify Sans';
+  color: #FFFFFF;
+  background-color: #92B387;
+  padding: 2rem;
+  text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+ul {
+  min-height: 5rem;
+  padding: 0.1rem;
+  font-family: 'Aldrich';
+  list-style-type: none;
+}
+
+li {
+  padding: 1px;
+}
+
+.over-five {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.random-words {
+  font-family: 'Aldrich';
+  background-color: #4B6944;
+  border : solid 0.4rem #294237;
+  color: #000000;
+  padding: 1rem;
+}
+
+.word-counter {
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+}
+
+.tiny-btn {
+  width: 4rem;
+  height: 4rem;
+  border: none;
+  border-radius: 100%;
+  background-color: #D68E96;
+  color: #FFFFFF;
+  margin: 1rem;
+  font-size: 2rem;
+  font-family: 'Pixelify Sans';
+  cursor: pointer;
+}
+
+.result-btn {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #D68E96;
+  color: #FFFFFF;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-family: 'Pixelify Sans';
+  cursor: pointer;
+}
+
+
+
+
+.flower-line {
+  display: flex;
+  justify-content: space-between;
+
+  z-index: 1;
+}
+.flower {
+  width: 5rem;
 }
