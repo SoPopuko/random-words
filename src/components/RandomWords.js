@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import FrenchWordsData from 'an-array-of-french-words'
 import FlowerLine from './FlowerLine';
+import LambAndGoat from './LambAndGoat';
 
 export default function RandomWords() {
     const [numberOfWords, setNumberWords] = useState(1);
@@ -42,15 +43,16 @@ export default function RandomWords() {
     return (
         <div className="random-words">
             <FlowerLine />
+            <LambAndGoat />
             <div>
-                <h2> Choisi le nombre de mots </h2>
+                <div className='text'> Choisi le nombre de mots </div>
                 <div className='word-counter'>
                     <button className='tiny-btn' onClick={RemoveNumWord}> - </button>
                     <h2> {numberOfWords} </h2>
                     <button className='tiny-btn' onClick={AddNumWord}> + </button>
                 </div>
                 
-                <h2> Clique sur le bouton !</h2>
+                <div className='text'> Clique sur le bouton !</div>
                 <ul className={numberOfWords>5 ? 'over-five' : ''}>
                     {listOfWords.map(word => (
                         <li key={word.id}>{word.name}</li>

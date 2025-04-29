@@ -4,8 +4,18 @@ body {
   font-family: 'Pixelify Sans';
   color: #FFFFFF;
   background-color: #92B387;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
+}
+.titlebar {
+  height: 50px;
+  background: #D68E96;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 0 5px;
 }
 
 ul {
@@ -17,6 +27,10 @@ ul {
 
 li {
   padding: 1px;
+}
+
+.text {
+  font-size: 18px;
 }
 
 .over-five {
@@ -39,14 +53,14 @@ li {
 }
 
 .tiny-btn {
-  width: 4rem;
-  height: 4rem;
+  width: 2rem;
+  height: 2rem;
   border: none;
   border-radius: 100%;
   background-color: #D68E96;
   color: #FFFFFF;
   margin: 1rem;
-  font-size: 2rem;
+  font-size: 24px;
   font-family: 'Pixelify Sans';
   cursor: pointer;
 }
@@ -62,15 +76,45 @@ li {
   cursor: pointer;
 }
 
-
-
-
 .flower-line {
   display: flex;
   justify-content: space-between;
-
-  z-index: 1;
 }
+
 .flower {
   width: 5rem;
+}
+
+.goatlamb-pic {
+  display: flex;
+  justify-content: space-between;
+}
+
+#Lamb, #Goat {
+  width: 12rem;
+  animation: 3s linear infinite bouncing;
+}
+
+#Lamb, #Goat:hover {
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes bouncing {
+	20%, 50%, 80% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  0% {
+    transform: translateY(-10px);
+  }
+	40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
 }
