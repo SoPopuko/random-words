@@ -7,8 +7,7 @@ function createWindow() {
     height: 700,
     minWidth: 530,
     maxWidth: 800,
-    titleBarStyle: 'hidden',
-    //frame: false,
+    frame: false,
   });
 
   win.loadURL('http://localhost:3000');
