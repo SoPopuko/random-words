@@ -1,0 +1,27 @@
+directories:
+  output: dist
+  buildResources: assets
+files:
+  - filter:
+      - build/**/*
+      - build/**/*
+      - node_modules/**/*
+extraMetadata:
+  main: build/electron.js
+mac:
+  publish:
+    provider: github
+    owner: SoPopuko
+    repo: random-words
+    token: <stripped sensitive data>
+win:
+  publish:
+    provider: github
+    owner: SoPopuko
+    repo: random-words
+    token: <stripped sensitive data>
+publish:
+  provider: github
+  owner: SoPopuko
+extends: react-cra
+electronVersion: 35.2.2

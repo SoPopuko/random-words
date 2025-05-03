@@ -15,11 +15,14 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-electron": "set ELECTRON_START_URL=http://localhost:3000 && electron .",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron": "electron .",
-    "main": "index.js"
+    "main": "index.js",
+    "package": "electron-builder build --mac --win -c.extraMetadata.main=build/electron.js --publish never",
+    "publish": "electron-builder build --mac --win --publish always"
   },
   "eslintConfig": {
     "extends": [
@@ -40,7 +43,34 @@
     ]
   },
   "devDependencies": {
-    "electron": "^35.1.4",
+    "electron": "^35.2.2",
+    "electron-builder": "^26.0.12",
     "electron-is-dev": "^3.0.1"
+  },
+  "build": {
+    "mac": {
+      "publish": {
+        "provider": "github",
+        "owner": "SoPopuko",
+        "repo": "random-words",
+        "token": ""
+      }
+    },
+    "win": {
+      "publish": {
+        "provider": "github",
+        "owner": "SoPopuko",
+        "repo": "random-words",
+        "token": ""
+      }
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "SoPopuko"
+    }
   }
 }
