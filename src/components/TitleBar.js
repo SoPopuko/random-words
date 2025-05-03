@@ -8,21 +8,21 @@ import CloseIcon from '../images/closeIcon.svg'
  */
 
 export default function TitleBar() {
-    const { remote } = require('electron')
 
     function minusWindow() {
-        remote.minimize();
+        app.window.close();
     }
+
     function closeWindow() {
-        window.close()
+        app.window.minimize();
     }
 
     return(
         <div id="titleBar">
             <div> Mots Random </div>
             <div className='titlebar-icons'>
-                <img id="minus" src={MinusIcon} alt="minus icon" onClick={minusWindow} />
-                <img id="close" src={CloseIcon} alt="close icon" onClick={closeWindow} />
+                <img id="minimize" src={MinusIcon} alt="minus icon" onClick={minusWindow} />
+                <img id="close-app" src={CloseIcon} alt="close icon" onClick={closeWindow} />
             </div>
         </div>
     )
